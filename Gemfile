@@ -10,9 +10,6 @@ end
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
-gem 'unicorn'
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,7 +47,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver', '~> 3.10'
+  gem 'selenium-webdriver', '~> 3.141'
   gem 'rubocop', '~> 0.61.1'
   gem 'rubocop-rspec', '~> 1.22'
   gem 'simplecov', '~> 0.15'
@@ -61,7 +58,7 @@ group :development, :test do
   # Run Rspec tests in parallel to speed the test suite up
   gem 'parallel_tests', '~> 2.27'
   # Add .env file to store environment variables
-  gem 'dotenv-rails', '~> 2.5'
+  gem 'dotenv-rails', '~> 2.6'
 end
 
 group :development do
@@ -78,17 +75,19 @@ group :test do
   gem 'capybara-screenshot', '~> 1.0'
   gem 'rspec-rails', '~> 3.7'
   gem 'site_prism', '~> 2.9'
-  gem 'chromedriver-helper', '~> 1.1'
-  gem 'geckodriver-helper', '~> 0.0'
+  gem 'chromedriver-helper', '~> 2.1'
+  gem 'geckodriver-helper', '~> 0.23'
   gem 'database_cleaner', '~> 1.5'
-  gem 'webmock', '~> 3.4'
-  gem 'faker', '~> 1.8'
+  gem 'webmock', '~> 3.5'
+  gem 'faker', '~> 1.9'
   gem 'aws-sdk-s3', '~> 1.21'
+  gem 'factory_bot'
 end
 
 group :production do
   # Add bootsnap for 5.2
   gem 'bootsnap', '~> 1.3'
+  gem 'unicorn', '~> 5.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
