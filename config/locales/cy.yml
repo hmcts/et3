@@ -60,7 +60,7 @@ cy:
         make_employer_contract_claim: "Ydych chi eisiau gwneud Hawliad Contract y Cyflogwr? (dewisol) "
     label:
       respondents_detail:
-        case_number: Rhif yr Achos
+        case_number: Rhif yr achos
         name: "Enw'r unigolyn, cwmni neu sefydliad "
         contact: Enw llawn y cyswllt (dewisol)
         building_name: "Enw neu rif yr adeilad "
@@ -85,7 +85,7 @@ cy:
             'no': 'Nac oes'
         employment_at_site_number: "Faint o bobl sy’n gyflogedig ar y safle ble'r oedd yr hawlydd yn gweithio?"
       claimants_detail:
-        claimants_name: "Enw'r hawlydd (dewisol) "
+        claimants_name: Enw llawn yr hawlydd (dewisol)
         agree_with_early_conciliation_details:
           choices:
             'yes': 'Ydw'
@@ -266,6 +266,9 @@ cy:
         not_a_number: "Nodwch y tâl terfynol arferol fel rhif "
       type_of_representative:
         inclusion: "Dewiswch sut fath o gynrychiolydd sydd gennych "
+      disability_information:
+        blank: |
+          Byddai o gymorth i ni pe baech yn nodi beth yw'ch anabledd, a dweud pa gymorth, os o gwbl, fydd arnoch ei angen wrth i'ch hawliad fynd drwy'r system, gan gynnwys ar gyfer unrhyw wrandawiadau a gynhelir mewn adeilad tribiwnlys fod yn wag
   components:
     common:
       error_header: "Adolygwch y canlynol "
@@ -362,7 +365,7 @@ cy:
     respondents_details:
       header: "Manylion yr Atebydd "
     claimants_details:
-      header: "Manylion yr Hawlydd "
+      header: Manylion yr hawlydd
     earnings_and_benefits:
       header: "Enillion a Buddion "
     response:
@@ -383,7 +386,7 @@ cy:
       or_text: "neu"
       upload_button: "Cliciwch yma i lwytho ffeil rtf"
   attributes:
-    case_number: rhif yr Achos
+    case_number: rhif yr achos
     name: enw'r unigolyn, cwmni neu sefydliad
     contact: enw llawn y cyswllt
     building_name: enw neu rif yr adeilad
@@ -400,7 +403,7 @@ cy:
     organisation_employ_gb: faint o bobl sy’n gyflogedig gan y sefydliad hwn ym Mhrydain Fawr?
     organisation_more_than_one_site: a oes gan y sefydliad hwn fwy nag un safle ym Mhrydain Fawr?
     employment_at_site_number: faint o bobl sy’n gyflogedig ar y safle ble'r oedd yr hawlydd yn gweithio?
-    claimants_name: enw'r hawlydd
+    claimants_name: enw llawn yr hawlydd
     agree_with_early_conciliation_details: a ydych chi'n cytuno gyda'r manylion a roddodd yr hawlydd ynghylch Cymodi Cynnar gydag Acas?
     disagree_conciliation_reason: pam yr ydych yn anghytuno â’r hawlydd?
     agree_with_employment_dates: a yw'r dyddiadau cyflogaeth a roddwyd gan yr hawlydd yn gywir?
