@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe RespondentsDetail, type: :model do
+  include ET3::Test::Setup
+
+  before do
+    stub_valid_office_code
+    stub_invalid_office_code
+  end
 
   let(:populated_respondent_detail) {
     described_class.new(
@@ -19,6 +25,14 @@ RSpec.describe RespondentsDetail, type: :model do
       populated_respondent_detail.valid?
 
       expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid)
+    end
+
+    it 'will not validate a case number with an invalid office code' do
+      populated_respondent_detail.case_number = "0254321/2018"
+
+      populated_respondent_detail.valid?
+
+      expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid_office)
     end
 
     it 'will not validate an incorrect email address' do
@@ -491,5 +505,38 @@ RSpec.describe RespondentsDetail, type: :model do
     end
   end
 
+  context "with a malicious user the remote validator" do
+    it "will not validate the use of a single quote at the start of the string" do
+      populated_respondent_detail.case_number = "'7654321/2017"
 
+      populated_respondent_detail.valid?
+
+      expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid)
+    end
+
+    it "will not validate the use of a single quote at the end of the string" do
+      populated_respondent_detail.case_number = "7654321/2017'"
+
+      populated_respondent_detail.valid?
+
+      expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid)
+    end
+
+    it "will not validate the use of an object closing bracket at the start of the string" do
+      populated_respondent_detail.case_number = "}7654321/2017"
+
+      populated_respondent_detail.valid?
+
+      expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid)
+    end
+
+    it "will not validate the use of an object closing bracket at the end of the string" do
+      populated_respondent_detail.case_number = "7654321/2017}"
+
+      populated_respondent_detail.valid?
+
+      expect(populated_respondent_detail.errors.details[:case_number]).to include a_hash_including(error: :invalid)
+    end
   end
+
+end
