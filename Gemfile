@@ -7,7 +7,10 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.3'
+# Azure deployment so we need this
+gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_secrets.git', tag: 'v0.1.3'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use SCSS for stylesheets
@@ -16,7 +19,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'rack-proxy', '~> 0.6.4'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -31,16 +33,15 @@ gem 'jbuilder', '~> 2.8'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'slim-rails', '~> 3.1'
-gem 'govuk_template', '~> 0.23.0'
+gem 'slim-rails', '~> 3.2'
+gem 'govuk_template', '~> 0.26.0'
 gem 'govuk_elements_rails', '~> 3.1'
-gem 'govuk_elements_form_builder',  '~>1.2'
+gem 'govuk_elements_form_builder',  '~>1.3'
 gem 'gov_uk_date_fields', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'activerecord-nulldb-adapter', '~> 0.3'
 gem 'httparty', '~> 0.16'
 gem 'uk_postcode', '~> 2.1'
-gem 'dropzonejs-rails', '~> 0.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,17 +49,17 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver', '~> 3.141'
-  gem 'rubocop', '~> 0.61.1'
-  gem 'rubocop-rspec', '~> 1.22'
+  gem 'rubocop', '~> 0.67.2'
+  gem 'rubocop-rspec', '~> 1.32'
   gem 'simplecov', '~> 0.15'
   gem 'pry', '~> 0.12'
   #VSCode debugger
   gem 'ruby-debug-ide', '~> 0.6.1'
   gem 'debase', '~> 0.2.2'
   # Run Rspec tests in parallel to speed the test suite up
-  gem 'parallel_tests', '~> 2.27'
+  gem 'parallel_tests', '~> 2.28'
   # Add .env file to store environment variables
-  gem 'dotenv-rails', '~> 2.6'
+  gem 'dotenv-rails', '~> 2.7'
 end
 
 group :development do
@@ -73,7 +74,7 @@ end
 group :test do
   gem 'cucumber-rails', '~> 1.5', :require => false
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.8'
   gem 'site_prism', '~> 3.0'
   gem 'chromedriver-helper', '~> 2.1'
   gem 'geckodriver-helper', '~> 0.23'
@@ -81,16 +82,19 @@ group :test do
   gem 'webmock', '~> 3.5'
   gem 'faker', '~> 1.9'
   gem 'aws-sdk-s3', '~> 1.21'
+  gem 'azure-storage', '~> 0.15.0.preview'
   gem 'factory_bot'
 end
 
 group :production do
   # Add bootsnap for 5.2
-  gem 'bootsnap', '~> 1.3'
-  gem 'unicorn', '~> 5.4'
+  gem 'bootsnap', '~> 1.4'
+  gem 'unicorn', '~> 5.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'sentry-raven', '~> 2.9'
+
+gem 'et_dropzone_uploader', git: 'https://github.com/hmcts/et_dropzone_uploader.git', tag: 'v2.1.0'
