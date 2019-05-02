@@ -40,15 +40,15 @@ gem 'govuk_elements_form_builder',  '~>1.3'
 gem 'gov_uk_date_fields', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'activerecord-nulldb-adapter', '~> 0.3'
-gem 'httparty', '~> 0.16'
+gem 'httparty', '~> 0.17'
 gem 'uk_postcode', '~> 2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver', '~> 3.141'
+  gem 'capybara', '~> 3.18'
+  gem 'selenium-webdriver', '~> 3.142'
   gem 'rubocop', '~> 0.67.2'
   gem 'rubocop-rspec', '~> 1.32'
   gem 'simplecov', '~> 0.15'
@@ -72,11 +72,10 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber-rails', '~> 1.5', :require => false
   gem 'capybara-screenshot', '~> 1.0'
   gem 'rspec-rails', '~> 3.8'
-  gem 'site_prism', '~> 3.0'
-  gem 'chromedriver-helper', '~> 2.1'
+  gem 'site_prism', '~> 3.1'
+  gem 'webdrivers', '~> 3.0'
   gem 'geckodriver-helper', '~> 0.23'
   gem 'database_cleaner', '~> 1.5'
   gem 'webmock', '~> 3.5'
